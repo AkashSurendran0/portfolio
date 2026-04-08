@@ -16,7 +16,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Premium Portfolio | Creative Developer",
+  title: "Akash Portfolio",
   description: "High-performance 3D-immersive personal portfolio",
 };
 
