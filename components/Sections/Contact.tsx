@@ -14,9 +14,18 @@ export default function Contact() {
       const formData = new FormData(e.currentTarget);
       const data = Object.fromEntries(formData);
       
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://formsubmit.co/ajax/akashsurendran.personal@gmail.com", {
         method: "POST",
-        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          message: data.message,
+          _subject: `New Contact Form Submission from ${data.name}`
+        }),
       });
       
       if (res.ok) setStatus("success");

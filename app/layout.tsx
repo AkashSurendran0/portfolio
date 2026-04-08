@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/Layout/ThemeProvider";
 import NoiseOverlay from "@/components/Layout/NoiseOverlay";
 import CustomCursor from "@/components/Layout/CustomCursor";
+import LoadingScreen from "@/components/Layout/LoadingScreen";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -31,6 +32,7 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} h-full antialiased dark`}
     >
       <body className="min-h-full flex flex-col font-sans bg-black text-white selection:bg-[#CCFF00] selection:text-black overflow-x-clip">
+        <LoadingScreen />
         <ThemeProvider>
           <NoiseOverlay />
           <CustomCursor />
