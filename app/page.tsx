@@ -1,65 +1,39 @@
-import Image from "next/image";
+import HeroScene from "@/components/3D/HeroScene";
+import ThemeToggle from "@/components/Layout/ThemeToggle";
+import Journey from "@/components/Sections/Journey";
+import Skills from "@/components/Sections/Skills";
+import Projects from "@/components/Sections/Projects";
+import Contact from "@/components/Sections/Contact";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="relative flex min-h-screen flex-col items-center justify-between w-full overflow-x-clip">
+      {/* <ThemeToggle /> */}
+
+      {/* 100vh Hero area */}
+      <div className="relative h-[100dvh] w-full flex items-center justify-center z-10">
+        {/* Background 3D Scene */}
+        <div className="absolute inset-0 z-0 pointer-events-auto w-full h-[100dvh]">
+          <HeroScene />
+        </div>
+
+        {/* Foreground Text */}
+        <div className="relative z-10 flex flex-col items-center justify-center pointer-events-none mix-blend-difference mt-20">
+          <p className="font-mono text-[#FFFFFF] text-xl md:text-3xl mb-4 pointer-events-auto tracking-widest uppercase drop-shadow-md">
+            My name is Akash
           </p>
+          <h1 className="text-[clamp(3.5rem,8vw,8rem)] font-bold text-white text-center leading-[1.05] tracking-tighter transition-all duration-700 cursor-default pointer-events-auto drop-shadow-2xl select-none hover:text-[#CCFF00]">
+            A MERN STACK <br /> DEVELOPER
+          </h1>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </div>
+
+      <div className="relative z-10 w-full bg-black/80 backdrop-blur-md">
+        <Journey />
+        <Skills />
+        <Projects />
+        <Contact />
+      </div>
+    </main>
   );
 }
